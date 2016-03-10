@@ -1,0 +1,217 @@
+/*---------------------------------------------------------------------------------
+   Common Styles
+---------------------------------------------------------------------------------*/
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+html {
+	width: 100%;
+	height: 100%;
+	background-color: #009688;
+}
+body {
+	background-color: #503A32;
+	width: 98%;
+	height: 570px;
+	margin: 0.8em auto;
+	border-radius: 17%;
+}
+
+.container {
+    /*border: 1px solid gray;*/
+    width: 70%;
+    margin: auto;
+    text-align: center;
+   	height: 570px;
+    position: relative;
+}
+
+/*---------------------------------------------------------------------------------
+   Initial Page Styles
+---------------------------------------------------------------------------------*/
+
+
+	/* Title/Start Game Button style Declarations */
+.title {
+    background-color: #E91E63;
+    box-shadow: 0px 0px 25px rgba(255, 255, 0, 0.46);
+    font-family: 'Henny Penny';
+    color: white;
+    font-size: 2rem;
+    position: absolute;
+    top: 34%;
+    left: 37%;
+    border: 0px dashed green;
+    border-radius: 100%;
+    height: 13rem;
+    width: 13rem;
+}
+	/* Logo Circles Style Declarations */
+
+.img-logo {	
+    /*border: 1px dotted white;*/
+	border-radius: 100%;
+    height: 7rem;
+    width: 7rem;
+    opacity: 0.7;
+    background-size: 180%;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
+#circle1 {
+    top: 20%;
+    left:56%;
+    background-image: url('../images/cilantro.jpg');
+    background-position: center;
+ }
+
+ #circle2 {
+    top: 42%;
+    left: 62%;
+    background-image: url('../images/sichuan-peper.jpg');
+
+ }
+
+  #circle3 {
+    top: 63%;
+    left: 56%;
+    background-image: url('../images/turmeric.jpg');
+ }
+   #circle4 {
+    top: 73%;
+    left: 42%;
+    background-image: url('../images/vanilla.jpg');
+    background-position: center;
+ }
+   #circle5 {
+    top: 63%;
+    left: 28%;
+    background-image: url('../images/chipotle.jpg');
+    background-position: center;
+ }
+   #circle6 {
+    top: 42%;
+    left: 22%;
+    background-image: url('../images/salt.jpg');
+    background-size:150%; 
+    background-position: center;
+ }
+    #circle7 {
+    top: 20%;
+    left: 28%;
+    background-image: url('../images/blackpeper.jpg');
+   /* background-position: center;*/
+ }
+    #circle8 {
+	top: 12%;
+    left: 42%;
+    background-image: url('../images/anise.jfif');
+ }
+
+ /*---------------------------------------------------------------------------------
+   Question Page Styles
+---------------------------------------------------------------------------------*/
+
+.question {
+    font-family: 'Palanquin', sans-serif;
+    font-weight: 700;
+    color: #FFC107;
+    width: 70%;
+    margin: 0 auto;
+    border-radius: 10px 10px;
+	padding-top: 7rem;
+	z-index: 20;
+}
+
+.answers-area {
+	    /*border: 1px solid gray;*/
+	    width: 85%;
+	    margin: 2rem auto;
+	    z-index: 20;
+
+}
+label {
+    padding-right: 3rem;
+    font-family: 'Palanquin', sans-serif;
+    font-weight: 200;
+    color: white;
+    font-size: 1.5rem;
+    width: 20%;
+}
+
+
+	/* Button & Feedback Area Style Declarations */
+
+.button-area {
+	/*border: 1px solid gray;*/
+    width: 80%;
+    margin: 2rem auto;
+    padding: 0.7rem	;
+    text-align: center;
+    height: 4rem;
+    position: relative;
+    z-index: 20;
+
+}
+
+.question-hint, .submit, .restart {
+    border: 0px;
+    background-color: rgba(233, 30, 99, 0.87);
+    border-radius: 100%;
+    box-shadow: 0px 0px 10px 0px #FFC107;
+    height: 2rem;
+    width: 2rem;
+    font-family: 'Palanquin';
+    font-weight: bolder;
+    color: white;
+    margin: 0.5rem 2.5rem;
+    padding: 0rem 0.5rem .5rem .5rem;
+  }
+
+  .feedback-area {
+  	color: white;
+  }
+
+
+  	/* Hidden Elements */
+
+  .hint-info {
+    background-color: #FFC107;
+    border-radius: 2rem;
+    font-family: 'Palanquin';
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #009688;
+    z-index: 50;
+    position: absolute;
+    margin-top: -17rem;
+    height: 13rem;
+    text-align: center;
+    padding: 3rem;
+  }
+
+ /*---------------------------------------------------------------------------------
+   Results Page Styles
+---------------------------------------------------------------------------------*/
+
+#score-page p {
+	font-size: 2rem;
+	color: white;
+	position: absolute;	
+	width: 50%;
+	/*margin: 0 auto;*/
+}
+
+#score-text {
+    top: 11%;
+    left: 24%;
+
+}
+
+#complement {
+    top: 74%;
+    left: 24%;
+}

@@ -14,6 +14,75 @@
 </head>
 <body>
 
+<!--Initial Page-->
+
+	<div id="init-page" class="container">
+		<div id="bubbles" class="logo">
+			<div class="img-logo" id="circle1"></div>
+			<div class="img-logo" id="circle2"></div>
+			<div class="img-logo" id="circle3"></div>
+			<div class="img-logo" id="circle4"></div>
+			<div class="img-logo" id="circle5"></div>
+			<div class="img-logo" id="circle6"></div>
+			<div class="img-logo" id="circle7"></div>
+			<div class="img-logo" id="circle8"></div>
+		</div>
+		<button id="start-button" class="title">
+			Spices of <br>the World
+		</button>
+	</div>
+
+<!-- Question Page -->
+
+	<div id="quiz-section" class="container">
+		<form id="question-1">
+			<h1 class="question">
+				Which spice is known for it’s versatility usage in savory and sweet foods?
+			</h1>
+				<div class="answers-area">
+				<label>
+					<input type="radio" name="0" value="Cinnamon">
+					Cinnamon
+				</label>
+				<label>
+					<input type="radio" name="1" value="Paprika">
+					Paprika
+				</label>
+				<label>
+					<input type="radio" name="2" value="Rosemery">
+					Rosemary
+				</label>
+				<label>
+					<input type="radio" name="3" value="Mint">
+					Mint
+				</label>
+				<label>
+					<input type="radio" name="4" value="Wasabi">
+					Wasabi
+				</label>
+				</div>
+		</form>
+		<div class="button-area">
+			<button id="restart" class="restart">↻</button>
+			<button id="hint" class="question-hint">&#128161;</button>
+				<!-- <p class="hint-info">In the famous Mexican dessert: “arroz con leche” or “rice pudding” is the main and only spice used!</p> -->
+			<button id="submit" class="submit">></button>
+		</div>
+		<div class="feedback-area">
+			<p>You're score is: <span id="count">0</span>correct of 5.</p>
+ 
+<!-- Score Page -->
+		
+	<div id="score-page" class="container">
+
+		<button id="start-button" class="title">
+			Spices of <br>the World
+		</button>
+		<p id="score-text">Your final score is <span id="grade">0%</span></p>
+		<p id="complement">You are a master cheff!</p>
+	</div>	
+
+	
 
 
 <!-- JavaScript -->
