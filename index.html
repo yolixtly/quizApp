@@ -34,43 +34,46 @@
 
 <!-- Question Page -->
 
+<section id="quizApp">
+
 	<div id="quiz-section" class="container">
-		<form id="question-1">
-			<h1 class="question">
-				Which spice is known for it’s versatility usage in savory and sweet foods?
+		<form id="question-group-wrapper">
+			<h1 id="question-area" class="question">
+				
 			</h1>
 				<div class="answers-area">
-				<label>
-					<input type="radio" name="0" value="Cinnamon">
-					Cinnamon
-				</label>
-				<label>
-					<input type="radio" name="1" value="Paprika">
-					Paprika
-				</label>
-				<label>
-					<input type="radio" name="2" value="Rosemery">
-					Rosemary
-				</label>
-				<label>
-					<input type="radio" name="3" value="Mint">
-					Mint
-				</label>
-				<label>
-					<input type="radio" name="4" value="Wasabi">
-					Wasabi
-				</label>
+
+				<input type="radio" name="0" value="0">
+				<span id="option1">			
+				</span>
+				
+				<input type="radio" name="1" value="1">
+				<span id="option2">
+				</span>
+
+				<input type="radio" name="2" value="2">
+				<span id="option3">
+				</span>
+
+				<input type="radio" name="3" value="3">
+				<span id="option4">
+				</span>
+				
+				<input type="radio" name="4" value="4">
+				<span id="option5">				
+				</span>
+				
 				</div>
 		</form>
 		<div class="button-area">
 			<button id="restart" class="restart">↻</button>
 			<button id="hint" class="question-hint">&#128161;</button>
-				<!-- <p class="hint-info">In the famous Mexican dessert: “arroz con leche” or “rice pudding” is the main and only spice used!</p> -->
-			<button id="submit" class="submit">></button>
+				<p id="hint-content" class="hint-info"></p>
+			<button id="nextQuestion" class="submit">></button>
 		</div>
 		<div class="feedback-area">
-			<p>You're score is: <span id="count">0</span>correct of 5.</p>
- 
+			<p>You're score is: <span id="count">0 </span>correct of 5.</p>
+ </section>
 <!-- Score Page -->
 		
 	<div id="score-page" class="container">
@@ -86,6 +89,7 @@
 
 
 <!-- JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
