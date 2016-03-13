@@ -39,7 +39,9 @@ console.log("Spices of the World Quiz");
 			feedbackArea,
 			finalScore,
 			score, //for percentage purposes
-			complement;
+			complement,
+			/*Result Page*/
+			lastButton;
 
 
 $(document).ready(function(){
@@ -76,6 +78,7 @@ $(document).ready(function(){
 			reStartButton = $('#restart');
 			hintButton =$('#hint');
 			nextQButton = $('#nextQuestion');
+			lastButton = $('#start2-button');
 			
 
 			/*Display of Score*/
@@ -103,14 +106,16 @@ $(document).ready(function(){
 			resultSection.hide();
 
 	// New Game Loads With Page
-			newGame();
+			startButton.click(function(){
+				newGame();
+			});
 
 
 		/*------Start Game Function------*/
 
 	function newGame(){
 
-		startButton.click(function(){
+		// startButton.click(function(){
 			/*change Pages*/
 			welcomePage.hide();
 			gameSection.show();
@@ -118,6 +123,8 @@ $(document).ready(function(){
 			/*Initial Count value of Global Variable*/
 
 			currentQuestion = 0;
+			userAnswerArray = [];
+			feedbackArea.text('');
 		
 			/*Display of First Question Group given the above variable*/
 			generateQuestionGroup(currentQuestion);
@@ -132,7 +139,7 @@ $(document).ready(function(){
 				/*Hidden hint*/
 				hintContent.hide();
 
-		});
+		// });
 	};
 
 	/*---------------------------------------------------------------------------------
@@ -263,29 +270,26 @@ $(document).ready(function(){
 			} else {
 				endGame();
 			}
+			$('.answers-area>input').prop('checked', false);
 		});
 	};
 
-										/*	function nextAnswer(){
-											buttonArea.on('click', 'nextQButton', function(){
-												if(currentQuestion < questionGroup.length -1){
-													currentQuestion++;
-												};
-											})
-												generateQuestionGroup(currentQuestion);
-										};*/
-
 	function endGame(){
-
 				currentQuestion++;
 				answerEvaluation();
 				gameSection.hide();
-				resultSection.show();
-				startEffects();
+				resultSection.show('slow');	
+
+		/*------Click event for a new Game in Results Page------*/
+				lastButton.click(function(){
+					newGame();	
+				});
+
+
 
 				
-				/*Switch statement to Render the 
-				final Score and the Final feedback*/
+			/*Switch statement to Render the 
+			final Score and the Final feedback*/
 
 		score = ((addUpScore(questionGroup) / questionGroup.length) * 100);
 		
@@ -304,7 +308,7 @@ $(document).ready(function(){
 				break;
 			case 3:
 				finalScore.text("Your final Score is "+ score + "%");
-				complement.text("Mastering Culinary arts is possible,<br/> You can do it!!");
+				complement.text("Mastering Culinary arts is possible, You can do it!!");
 				break;
 			case 4:
 				finalScore.text("Your final Score is " + score + "%");
@@ -320,11 +324,14 @@ $(document).ready(function(){
 	};
 
 
+/*---------------------------------------------------------------------------------
+	    Element Effects
+	---------------------------------------------------------------------------------*/
+
+		/*------Start Button Effects------*/
 
 
-/*------Start Button Effects------*/
-
-	function startEffects(){
+		function startEffects(){
 
 		startButton.mouseenter(function(){
 			startButton.addClass('game-start');
@@ -337,5 +344,4 @@ $(document).ready(function(){
 			startButton.text('Spices of the World');
 		})
 	};
-
 });
