@@ -58,7 +58,7 @@ $(document).ready(function(){
 
 			/*Init Page Elements for Effect purposes*/
 			bubbles = $('#bubbles');
-			// icons = bubbles.find('.img-logo');
+			icons = bubbles.find('.img-logo');
 
 			/*Display area values for: Questions, Answers & Hints*/
 			answersArea = $('#answers-area'); //div id='answers-area' wrapping all the spans; line 44 index.html
@@ -115,30 +115,38 @@ $(document).ready(function(){
 
 	function newGame(){
 
-		// startButton.click(function(){
-			/*change Pages*/
-			welcomePage.hide();
-			gameSection.show();
-
-			/*Initial Count value of Global Variable*/
+		/*Initial Count value of Global Variable*/
 
 			currentQuestion = 0;
 			userAnswerArray = [];
 			feedbackArea.text('');
+
+		// startButton.click(function(){
+			/*change Pages*/
+			welcomePage.hide();
+			hintContent.hide();
+			
+
+
 		
 			/*Display of First Question Group given the above variable*/
 			generateQuestionGroup(currentQuestion);
 
+			gameSection.show();
+
 				/*Re Start Game Button*/
-				reStart()
+				reStartButton.click(reStart);
 				/*hint Button content show/hide function*/
-				hintDisplay();
+				
+				
+				hintButton.mouseenter(hintDisplay);
+				hintButton.mouseleave(hintDisplay);
+				// /*Hidden hint*/
+				// hintDisplay();
 				/*Next Question button*/
 				nextAnswer();
 
-				/*Hidden hint*/
-				hintContent.hide();
-
+				
 		// });
 	};
 
@@ -177,7 +185,7 @@ $(document).ready(function(){
 		'Which spice is well known for its strong flavoring and aromatic agent, mostly used in its dried form in Mediterranean and Mexican cuisines for preparation of pizzas, chicken, fish and meat dishes?',
 		['Paprika', 'Black Pepper', 'Salt', 'Thyme', 'Oregano'],
 		4,
-		'It’s popularity in the US began in the 1940s.  US servicemen returning from Italy after World War II developed a fondness of the herb used to flavor pizza.'
+		'It’s popularity in the US began in the 1940s.  US servicemen returning from Italy after World War II developed a fondness of the herb used to flavor pizza.'
 		);
 	questionGroup[3] = new Question(
 		'It is one of the finest flavoring bases used exclusively in sweet cookery, it is added to cakes, biscuits, desserts, and puddings:',
@@ -186,7 +194,7 @@ $(document).ready(function(){
 		'This highly prized bean (only after saffron), is native to the tropical rain forests of Central America. Ancient Mayans believed that adding it to drinks would give aphrodisiac effects.'
 		);
 	questionGroup[4] = new Question(
-		'Cooking food with this spice dramatically decreases the condiments "pungency". It is a rich source of oil and protein.',
+		'Cooking food with this spice dramatically decreases the condiments "pungency". It is a rich source of oil and protein.',
 		['Sage', 'Poppy Seeds', 'Dill', 'Mustard', 'Cumin'],
 		3,
 		'It is the second most-used spice in the U.S., following peppercorns.'
@@ -213,7 +221,8 @@ $(document).ready(function(){
 		/*Function to Restart the Game with Restart button*/
 
 	function reStart(){
-		reStartButton.click(function(){
+			gameSection.show();
+			resultSection.hide('slow');	
 			//Reseting Values 
 			currentQuestion = 0;
 			userAnswerArray = [];
@@ -221,19 +230,19 @@ $(document).ready(function(){
 			//Render the first object of the Array
 			generateQuestionGroup(currentQuestion);
 
-		});
-
 	};
 
 			/*Hint display Button Function*/
 
 	function hintDisplay(){
-		hintButton.mouseenter(function(){
-			hintContent.show();
-		});
-		hintButton.mouseleave(function(){
-			hintContent.hide();
-		});
+		hintContent.fadeToggle();
+
+		// hintButton.mouseenter(function(){
+		// 	hintContent.show();
+		// });
+		// hintButton.mouseleave(function(){
+		// 	hintContent.hide();
+		// });
 	};
 
 
@@ -250,10 +259,10 @@ $(document).ready(function(){
 	 function answerEvaluation(){
 	 	if($("input[type='radio']:checked").val() == questionGroup[currentQuestion -1].correctAnswer){
 	 		userAnswerArray.push(1); //this pushes userAnswer to the userAnswerArray
-	 		feedbackArea.text("You're score is: " + addUpScore(questionGroup) + " correct out of " + questionGroup.length + ".");
+	 		feedbackArea.text("Your score is: " + addUpScore(questionGroup) + " correct out of " + questionGroup.length + ".");
 	 	} else {
 	 		userAnswerArray.push(0); //
-	 		feedbackArea.text("You're score is: " + addUpScore(questionGroup) + " correct out of " + questionGroup.length + ".");
+	 		feedbackArea.text("Your score is: " + addUpScore(questionGroup) + " correct out of " + questionGroup.length + ".");
 	 	}
 	 };
 
@@ -282,7 +291,7 @@ $(document).ready(function(){
 
 		/*------Click event for a new Game in Results Page------*/
 				lastButton.click(function(){
-					newGame();	
+					reStart();	
 				});
 
 
@@ -337,11 +346,13 @@ $(document).ready(function(){
 			startButton.addClass('game-start');
 			startButton.removeClass('title');
 			startButton.text('Start Game!');
+			icons.effect('Puff');
 		})
 		startButton.mouseleave(function(){
 			startButton.addClass('title');
 			startButton.removeClass('game-start');
 			startButton.text('Spices of the World');
+			icons.effect('Puff');
 		})
 	};
 });
